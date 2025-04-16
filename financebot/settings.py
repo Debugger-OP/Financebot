@@ -19,7 +19,6 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = ['financebot-dba5.onrender.com']
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +30,11 @@ SECRET_KEY = 'django-insecure-a3+%c4s1=q@5p%da&=+*lf(3ayou+^8xxp^hf$f%t)_*ga^qv$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'financebot-dba5.onrender.com',
+]
 
 
 # Application definition
