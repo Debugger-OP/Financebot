@@ -1,13 +1,12 @@
 import os
 from pinecone import Pinecone, ServerlessSpec
 from sentence_transformers import SentenceTransformer
-import os
 
 # Replace with your Pinecone API key
+api_key = "pcsk_3pbdHv_DKhY9br7x67Kx5X4CeTzgnW1Co5SvA86Dk45sxjWEfDsgiB1YdNHcSc3DG2JQ3M"
 
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 # Initialize Pinecone with API key
-pc = Pinecone(api_key=PINECONE_API_KEY)
+pc = Pinecone(api_key=api_key)
 
 # Index name you will use later in views
 index_name = "finance-bot-index"  # You can change the name
