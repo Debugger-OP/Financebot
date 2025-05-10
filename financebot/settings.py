@@ -14,8 +14,10 @@ from pathlib import Path
 import os
 import dj_database_url
 from decouple import config
+from dotenv import load_dotenv
 
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,10 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a3+%c4s1=q@5p%da&=+*lf(3ayou+^8xxp^hf$f%t)_*ga^qv$'
+SECRET_KEY =os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+
 
 ALLOWED_HOSTS = [
     'localhost',
