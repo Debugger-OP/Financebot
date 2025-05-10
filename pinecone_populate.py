@@ -1,10 +1,11 @@
 import pinecone
 from sentence_transformers import SentenceTransformer
+import os
 
 # Initialize Pinecone and embedding model
-api_key = "pcsk_3pbdHv_DKhY9br7x67Kx5X4CeTzgnW1Co5SvA86Dk45sxjWEfDsgiB1YdNHcSc3DG2JQ3M"  # Replace with your Pinecone API key
-index_name = "finance-bot-index"  # Replace with your index name
-pc = pinecone.Pinecone(api_key=api_key)
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+index_name = "finance-bot-index" 
+pc = pinecone.Pinecone(api_key=PINECONE_API_KEY)
 
 # Initialize the embedding model
 model = SentenceTransformer("all-MiniLM-L6-v2")

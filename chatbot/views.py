@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_exempt
 import requests
+import os
 
-TOGETHER_API_KEY = "cbd3961a8bd64ecfe9e7b6dc7532aaecd64bf220273c9308a6ea611a3e210d1e"  # Replace with your key
-TOGETHER_API_URL = "https://api.together.xyz/v1/chat/completions"
-MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.1"  # You can also try Mixtral etc.
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")  
+TOGETHER_API_URL = os.getenv("TOGETHER_API_URL")
+MODEL_NAME = os.getenv("MODEL_NAME")  # You can also try Mixtral etc.
 
 @csrf_exempt
 def chat(request):
